@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h1>Cadastro de Produto</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                Nome
+                <h:inputText id="iTxtNome" size="50" value="#{produtoMBean.produto.nome}"/>
+                Unidade de Medida
+                <h:selectOneMenu id="sMnUnidadeMedida" value="#{produtoMBean.produto.unidadeMedida}">
+                    <f:selectItems value="#{produtoMBean.listaUnidadeMedida}" var="unidadeMedida" itemValue="#{unidadeMedida.unidadeMedida}" itemLabel="#{unidadeMedida.unidadeMedida}"/>
+                </h:selectOneMenu>
+                Estoque
+                <h:inputText id="iTxtEstoque" size="10" value="#{produtoMBean.produto.estoque}"/>
+                Preço de custo
+                <h:inputText id="iTxtPrecoCusto" size="10" value="#{produtoMBean.produto.precoCusto}"/>
+                Margem de Lucro %
+                <h:inputText id="iTxtMargemLucro" size="10" value="#{produtoMBean.produto.margemLucro}"/>
+                Preço de Venda
+                <h:inputText id="iTxtPrecoVenda" size="10" value="#{produtoMBean.produto.precoVenda}"/>
+            </h:panelGrid>
+            <h:commandButton value="Salvar" action="#{produtoMBean.botaoSalvar()}"/>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>
